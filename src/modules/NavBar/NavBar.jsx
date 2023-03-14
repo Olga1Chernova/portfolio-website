@@ -3,7 +3,11 @@ import { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Img from 'shared/img/logo.png';
+
+import logo from 'shared/img/logo.svg';
+import navIcon1 from 'shared/img/nav-icon-1.svg';
+import navIcon2 from 'shared/img/nav-icon-2.svg';
+import navIcon3 from 'shared/img/nav-icon-3.svg';
 
 export const NavBar = () => {
   const [activeLink, setActive] = useState('home');
@@ -24,21 +28,21 @@ export const NavBar = () => {
         setActive(value);
   }
 
-  return (
-    <Navbar expand="lg" className={scroll ? 'scroll' : ''}>
+    return (
+    <Navbar expand="md" className={scroll ? 'scrolled' : ''}>
       <Container>
         <Navbar.Brand href="#home">
-          <img src={Img} alt="logo" />
+          <img src={logo} alt="logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav">
-          <span className="navbar-toggle-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link
               href="#home"
               className={
-                activeLink === 'home' ? 'active-nav-link' : 'navbar-link'
+                activeLink === 'home' ? 'active navbar-link' : 'navbar-link'
               }
               onClick={() => onUpdateActiveLink('home')}
             >
@@ -47,7 +51,7 @@ export const NavBar = () => {
             <Nav.Link
               href="#skills"
               className={
-                activeLink === 'skills' ? 'active-nav-link' : 'navbar-link'
+                activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'
               }
               onClick={() => onUpdateActiveLink('skills')}
             >
@@ -56,7 +60,7 @@ export const NavBar = () => {
             <Nav.Link
               href="#projects"
               className={
-                activeLink === 'projects' ? 'active-nav-link' : 'navbar-link'
+                activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'
               }
               onClick={() => onUpdateActiveLink('projects')}
             >
@@ -65,14 +69,14 @@ export const NavBar = () => {
           </Nav>
           <div className="navbar-info">
             <div className="social-icon">
-              <a href="#">
-                <img src={''} alt="" />
+              <a href="#linkedIn">
+                <img src={navIcon1} alt="linkedIn" />
               </a>
-              <a href="#">
-                <img src={''} alt="" />
+              <a href="#GitHub">
+                <img src={navIcon2} alt="GitHub" />
               </a>
-              <a href="#">
-                <img src={''} alt="" />
+              <a href="#Telegram">
+                <img src={navIcon3} alt="Telegram" />
               </a>
             </div>
             <button
